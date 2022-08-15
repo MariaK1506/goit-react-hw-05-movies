@@ -19,10 +19,6 @@ export async function fetchTrendingMovies() {
   return response.data;
 }
 
-// export const fetchTrendingMovies = axios.get(
-//   `${BASE_URL}${TRENDING_PATH_PARAMS}?api_key=${API_KEY}`
-// );
-
 // export const fetchSearchMovies = (query, page) =>
 //   axios.get(
 //     `${BASE_URL}${SEARCH_PATH_PARAMS}?api_key=${API_KEY}&language=en-US&${query}&page=${page}&include_adult=false`

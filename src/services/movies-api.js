@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 const API_KEY = '2469436d9ac3e13267858f145f807eef';
 const TRENDING_PATH_PARAMS = 'trending/all/day';
-const SEARCH_PATH_PARAMS = 'search/movie';
+// const SEARCH_PATH_PARAMS = 'search/movie';
 // const DETAILS_PATH_PARAMS = 'movie/';
 // const CREDITS_PATH_PARAMS = '';
 // const REVIEWS_PATH_PARAMS = '';

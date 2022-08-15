@@ -3,3 +3,5 @@ const MoviesList = () => (
     <li></li>
   </ul>
 );
+
+export default MoviesList;

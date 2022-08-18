@@ -1,5 +1,12 @@
+import { StyledLink } from 'components/Navigation/Navigation.styled';
+
 const NotFoundPage = () => {
-  return <p>Sorry, we couldn't find that page :(</p>;
+  return (
+    <div>
+      <p>Sorry, we couldn't find this page :(</p>
+      <p>Please, go to {<StyledLink to="/">Home</StyledLink>}</p>
+    </div>
+  );
 };
 
 export default NotFoundPage;

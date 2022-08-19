@@ -1,12 +1,10 @@
-import { StyledLink } from 'components/Navigation/Navigation.styled';
+import { StyledLink } from 'pages/NotFoundPage/NotFoundPage.styled';
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
   return (
     <div>
-      <p>Sorry, we couldn't find this page :(</p>
-      <p>Please, go to {<StyledLink to="/">Home</StyledLink>}</p>
+      <h1>Sorry, we couldn't find this page :(</h1>
+      <p>Please go to {<StyledLink to="/">Home</StyledLink>}</p>
     </div>
   );
-};
-
-export default NotFoundPage;
+}

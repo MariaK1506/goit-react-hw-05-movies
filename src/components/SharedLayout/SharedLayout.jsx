@@ -5,7 +5,7 @@ import { WrapperContainer } from 'components/Container/Container.styled';
 import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
 
-const SharedLayout = () => {
+export default function SharedLayout() {
   return (
     <WrapperContainer>
       <Header />
@@ -14,6 +14,4 @@ const SharedLayout = () => {
       </Suspense>
     </WrapperContainer>
   );
-};
-
-export default SharedLayout;
+}

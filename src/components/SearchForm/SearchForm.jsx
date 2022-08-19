@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types';
+import { Form, SearchButton, SearchInput, Icon } from './SearchForm.styled';
 
-const SearchForm = ({ onSubmit }) => {
+export default function SearchForm({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleInputChange = event => {
@@ -21,8 +23,8 @@ const SearchForm = ({ onSubmit }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <SearchInput
           value={searchQuery}
           onChange={handleInputChange}
           className="input"
@@ -31,10 +33,14 @@ const SearchForm = ({ onSubmit }) => {
           autoFocus
           placeholder="Search movie"
         />
-        <button type="submit">Search</button>
-      </form>
+        <SearchButton type="submit">
+          <Icon />
+        </SearchButton>
+      </Form>
     </div>
   );
-};
+}
 
-export default SearchForm;
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -1,15 +1,12 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-export const Item = styled.li`
-  padding: 5px;
-`;
-
-export const LinkTo = styled(Link)`
+export const StyledLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
+  padding: 12px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   color: black;
 
   &.active {

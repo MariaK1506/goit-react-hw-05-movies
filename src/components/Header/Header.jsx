@@ -1,9 +1,10 @@
 import Navigation from 'components/Navigation/Navigation';
+import { HeaderBox } from './Header.styled';
 
 const Header = () => (
-  <header>
+  <HeaderBox>
     <Navigation></Navigation>
-  </header>
+  </HeaderBox>
 );
 
 export default Header;

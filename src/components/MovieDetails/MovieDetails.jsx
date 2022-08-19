@@ -1,45 +1,58 @@
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Container } from 'components/Container/Container';
+import Loader from 'components/Loader/Loader';
+import {
+  Thumb,
+  Image,
+  TextWrapper,
+  Title,
+  Text,
+  Additional,
+  AdditionalList,
+  AdditionalItem,
+  LinkTo,
+} from './MovieDetails.styled';
 
-const MovieDetails = ({ movieDetails }) => {
-  // const { poster_path, title, genres, overview, releaseDate, vote_average } =
-  //   movieDetails;
-
+export default function MovieDetails({ movieDetails }) {
   const genresList = movieDetails.genres.map(genre => genre.name).join(', ');
   return (
     <Container>
-      <div>
-        <img
+      <Thumb>
+        <Image
           src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
           alt={movieDetails.title}
         />
-      </div>
-      <div>
-        <h2>{movieDetails.title ? movieDetails.title : 'Movie'}</h2>
-        <p>User Score: {movieDetails.vote_average}%</p>
-        <p>
-          Overview: {movieDetails.overview ? movieDetails.overview : 'About...'}
-        </p>
-        <p>Genres: {genresList ? genresList : 'No informaton'}</p>
-      </div>
-      <div>
+        <TextWrapper>
+          <Title>{movieDetails.title ? movieDetails.title : 'Movie'}</Title>
+          <Text>User Score: {movieDetails.vote_average}%</Text>
+          <Text>
+            Overview:{' '}
+            {movieDetails.overview ? movieDetails.overview : 'About...'}
+          </Text>
+          <Text>Genres: {genresList ? genresList : 'No informaton'}</Text>
+        </TextWrapper>
+      </Thumb>
+      <Additional>
         <h3>Additional information</h3>
-        <ul>
-          <li>
-            <Link to="cast">Cast</Link>
-          </li>
+        <AdditionalList>
+          <AdditionalItem>
+            <LinkTo to="cast">Cast</LinkTo>
+          </AdditionalItem>
 
-          <li>
-            <Link to="reviews">Reviews</Link>
-          </li>
-        </ul>
-        <Suspense fallback={<div>Loading subpage...</div>}>
+          <AdditionalItem>
+            <LinkTo to="reviews">Reviews</LinkTo>
+          </AdditionalItem>
+        </AdditionalList>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </div>
+      </Additional>
     </Container>
   );
-};
+}
 
-export default MovieDetails;
+MovieDetails.propTypes = {
+  movieDetails: PropTypes.object.isRequired,
+};

@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Item, LinkTo } from './MoviesItem.styled';
+import PropTypes from 'prop-types';
 
-const MoviesItem = ({ id, title, poster }) => {
+export default function MoviesItem({ id, title }) {
   return (
-    <li key={id}>
-      <Link to={`/movies/${id}`}>{title}</Link>
-    </li>
+    <Item key={id}>
+      <LinkTo to={`/movies/${id}`}>{title}</LinkTo>
+    </Item>
   );
-};
+}
 
-export default MoviesItem;
+MoviesItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  tittle: PropTypes.string.isRequired,
+};

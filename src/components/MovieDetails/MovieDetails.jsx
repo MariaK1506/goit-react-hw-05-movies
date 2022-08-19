@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Container } from 'components/Container/Container';
 import Loader from 'components/Loader/Loader';
@@ -16,6 +16,7 @@ import {
 } from './MovieDetails.styled';
 
 export default function MovieDetails({ movieDetails }) {
+  const location = useLocation();
   const genresList = movieDetails.genres.map(genre => genre.name).join(', ');
   return (
     <Container>
@@ -38,11 +39,15 @@ export default function MovieDetails({ movieDetails }) {
         <h3>Additional information</h3>
         <AdditionalList>
           <AdditionalItem>
-            <LinkTo to="cast">Cast</LinkTo>
+            <LinkTo to="cast" state={{ from: location?.state?.from }}>
+              Cast
+            </LinkTo>
           </AdditionalItem>
 
           <AdditionalItem>
-            <LinkTo to="reviews">Reviews</LinkTo>
+            <LinkTo to="reviews" state={{ from: location?.state?.from }}>
+              Reviews
+            </LinkTo>
           </AdditionalItem>
         </AdditionalList>
         <Suspense fallback={<Loader />}>

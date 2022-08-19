@@ -3,7 +3,6 @@ import MoviesItem from '../MoviesItem/MoviesItem';
 import { List } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
-  // console.log(movies);
   return (
     <List>
       {movies.map(({ id, title, poster_path }) => (

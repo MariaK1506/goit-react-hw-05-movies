@@ -10,7 +10,7 @@ export default function MovieDetailsPage() {
   const { status, error, movie } = useFetchMovieDetails();
 
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/movies';
+  const backLinkHref = location.state?.from ?? '/';
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function MovieDetailsPage() {
       {status === 'resolved' && (
         <section>
           <Container>
-            <BackLink to={backLinkHref}>Back to movies</BackLink>
+            <BackLink to={backLinkHref}>Back</BackLink>
 
             <MovieDetails movieDetails={movie} />
           </Container>

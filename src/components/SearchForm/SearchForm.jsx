@@ -10,6 +10,7 @@ export default function SearchForm({ onSubmit }) {
   const handleInputChange = event => {
     const { value } = event.currentTarget;
     setSearchQuery(value.toLowerCase().trim());
+    console.log(value);
   };
 
   const handleSubmit = event => {
@@ -18,7 +19,8 @@ export default function SearchForm({ onSubmit }) {
       return toast.error('Enter valid search');
     }
     onSubmit(searchQuery);
-    setSearchQuery('');
+    // console.log(searchQuery);
+    // setSearchQuery('');
   };
 
   return (

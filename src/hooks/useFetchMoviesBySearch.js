@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import * as Api from 'services/movies-api';
 
 export default function useFetchMoviesBySearch() {
-  
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);

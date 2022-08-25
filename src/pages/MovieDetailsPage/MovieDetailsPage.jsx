@@ -10,7 +10,7 @@ export default function MovieDetailsPage() {
   const { status, error, movie } = useFetchMovieDetails();
 
   const location = useLocation();
-  const backLinkHref = location?.state?.from ?? '/';
+  const backLinkHref = location.state?.from ?? '/';
 
   return (
     <>
